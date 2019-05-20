@@ -84,7 +84,6 @@ img.resize {
 }
 .choice:hover { 
     cursor: pointer; 
-    background: red; 
 }
 
 #action-message { 

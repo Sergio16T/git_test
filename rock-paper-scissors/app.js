@@ -26,7 +26,10 @@ function win(userChoice, computerChoice) {
   const smallUserWord = "user".fontsize(3).sub();
   const smallCompWord = "comp".fontsize(3).sub();
   result_p.innerHTML = `${convertTwoWord(userChoice)}${smallUserWord} beats ${convertTwoWord(computerChoice)}${smallCompWord} You Win!`;
+  document.getElementById(userChoice).classList.add('green-glow');
+  setTimeout(() => document.getElementById(userChoice).classList.remove('green-glow'), 400);
 }
+
 
 function lose(userChoice, computerChoice) {
   computerScore++;
@@ -35,11 +38,15 @@ function lose(userChoice, computerChoice) {
   const smallUserWord = "user".fontsize(3).sub();
   const smallCompWord = "comp".fontsize(3).sub();
   result_p.innerHTML = `${convertTwoWord(userChoice)}${smallUserWord} loses to ${convertTwoWord(computerChoice)}${smallCompWord} You lost.`;
+  document.getElementById(userChoice).classList.add('red-glow');
+  setTimeout(() => document.getElementById(userChoice).classList.remove('red-glow'), 400);
 }
 function draw(userChoice, computerChoice) { 
   const smallUserWord = "user".fontsize(3).sub();
   const smallCompWord = "comp".fontsize(3).sub();
   result_p.innerHTML = `${convertTwoWord(userChoice)}${smallUserWord} equals ${convertTwoWord(computerChoice)}${smallCompWord} It's a draw.`;
+  document.getElementById(userChoice).classList.add('gray-glow');
+  setTimeout(() => document.getElementById(userChoice).classList.remove('gray-glow'), 400);
 }
 
 function game(userChoice) {
@@ -66,14 +73,11 @@ function game(userChoice) {
 
 
 function main() {
-  rock_div.addEventListener('click', function() {
-    game("r");
-  })
-  paper_div.addEventListener('click', function() {
-    game("p")
-  })
-  scissors_div.addEventListener('click', function() {
-    game("s");
-  })
+  rock_div.addEventListener('click', () => 
+    game("r"));
+  paper_div.addEventListener('click', () =>
+    game("p"));
+  scissors_div.addEventListener('click', () => 
+    game("s")); 
 }
 main();
